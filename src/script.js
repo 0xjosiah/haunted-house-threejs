@@ -24,6 +24,14 @@ scene.fog = fog
  */
 const textureLoader = new THREE.TextureLoader()
 
+const doorColorTexture = textureLoader.load('./textures/door/color.jpg')
+const doorAlphaTexture = textureLoader.load('./textures/door/alpha.jpg')
+const doorAmbientOcclusionTexture = textureLoader.load('./textures/door/ambientocclusion.jpg')
+const doorHeightTexture = textureLoader.load('./textures/door/height.jpg')
+const doorNormalTexture = textureLoader.load('./textures/door/normal.jpg')
+const doorMetalnessTexture = textureLoader.load('./textures/door/metalness.jpg')
+const doorRoughnessTexture = textureLoader.load('./textures/door/roughness.jpg')
+
 /**
  * House
  */
@@ -39,6 +47,7 @@ const walls = new THREE.Mesh(
 walls.position.y = 2.5 / 2
 house.add(walls)
 
+// Roof
 const roof = new THREE.Mesh(
     new THREE.ConeGeometry(3.5, 1, 4),
     new THREE.MeshStandardMaterial({ color: 0xb35f45})
@@ -47,6 +56,7 @@ roof.position.y = 2.5 + .5 // height of walls plus half height of roof
 roof.rotation.y = Math.PI * .25
 house.add(roof)
 
+// Door
 const door = new THREE.Mesh(
     new THREE.PlaneGeometry(2, 2),
     new THREE.MeshStandardMaterial({ color: 0xaa7b7b})
