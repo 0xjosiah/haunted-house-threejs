@@ -42,10 +42,10 @@ const grassRoughnessTexture = textureLoader.load('./textures/grass/roughness.jpg
 const grassNormalTexture = textureLoader.load('./textures/grass/normal.jpg')
 const grassAmbientOcclusionTexture = textureLoader.load('./textures/grass/ambientOcclusion.jpg')
 
-grassColorTexture.repeat.set(8, 8)
-grassRoughnessTexture.repeat.set(8, 8)
-grassNormalTexture.repeat.set(8, 8)
-grassAmbientOcclusionTexture.repeat.set(8, 8)
+grassColorTexture.repeat.set(40, 40)
+grassRoughnessTexture.repeat.set(40, 40)
+grassNormalTexture.repeat.set(40, 40)
+grassAmbientOcclusionTexture.repeat.set(40, 40)
 
 grassColorTexture.wrapS = THREE.RepeatWrapping
 grassRoughnessTexture.wrapS = THREE.RepeatWrapping
@@ -147,12 +147,13 @@ for (let i = 0; i < 50; i++) {
     grave.position.set(x, 0.3, z)
     grave.rotation.y = (Math.random() - .5) * .4
     grave.rotation.z = (Math.random() - .5) * .4
+    grave.castShadow = true
     graves.add(grave)
 }
 
 // Floor
 const floor = new THREE.Mesh(
-    new THREE.PlaneGeometry(20, 20),
+    new THREE.PlaneGeometry(50, 50),
     new THREE.MeshStandardMaterial({ 
         map: grassColorTexture,
         aoMap: grassAmbientOcclusionTexture,
@@ -248,11 +249,20 @@ renderer.setClearColor(0x262837)
  * Shadows
  */
 renderer.shadowMap.enabled = true
+
 moonLight.castShadow = true
 doorLight.castShadow = true
-ghost1Light.castShadow = true
-ghost2Light.castShadow = true
-ghost3Light.castShadow = true
+ghost1.castShadow = true
+ghost2.castShadow = true
+ghost3.castShadow = true
+
+walls.castShadow = true
+bush1.castShadow = true
+bush2.castShadow = true
+bush3.castShadow = true
+bush4.castShadow = true
+
+floor.receiveShadow = true
 
 /**
  * Animate
