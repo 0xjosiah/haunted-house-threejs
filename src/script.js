@@ -34,7 +34,7 @@ const doorRoughnessTexture = textureLoader.load('./textures/door/roughness.jpg')
 
 const roofColorTexture = textureLoader.load('./textures/roof/color.jpg')
 const roofAmbientOcclusionTexture = textureLoader.load('./textures/roof/ambientOcclusion.jpg')
-const roofHeightTexture = textureLoader.load('./textures/roof/height.jpg')
+const roofHeightTexture = textureLoader.load('./textures/roof/height.png')
 const roofNormalTexture = textureLoader.load('./textures/roof/normal.jpg')
 const roofRoughnessTexture = textureLoader.load('./textures/roof/roughness.jpg')
 
@@ -93,10 +93,19 @@ house.add(walls)
 // Roof
 const roof = new THREE.Mesh(
     new THREE.ConeGeometry(3.5, 1, 4),
-    new THREE.MeshStandardMaterial({ color: 0xb35f45})
+    new THREE.MeshStandardMaterial({ 
+        map: roofColorTexture,
+        transparent: true,
+        aoMap: roofAmbientOcclusionTexture,
+        displacementMap: roofHeightTexture,
+        displacementScale: .01,
+        normalMap: roofNormalTexture,
+        roughnessMap: roofRoughnessTexture,
+    })
 )
 roof.position.y = 2.5 + .5 // height of walls plus half height of roof
 roof.rotation.y = Math.PI * .25
+roof.geometry.setAttribute('uv2', new THREE.Float32BufferAttribute(roof.geometry.attributes.uv.array, 2))
 house.add(roof)
 
 // Door
