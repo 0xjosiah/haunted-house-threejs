@@ -26,11 +26,17 @@ const textureLoader = new THREE.TextureLoader()
 
 const doorColorTexture = textureLoader.load('./textures/door/color.jpg')
 const doorAlphaTexture = textureLoader.load('./textures/door/alpha.jpg')
-const doorAmbientOcclusionTexture = textureLoader.load('./textures/door/ambientocclusion.jpg')
+const doorAmbientOcclusionTexture = textureLoader.load('./textures/door/ambientOcclusion.jpg')
 const doorHeightTexture = textureLoader.load('./textures/door/height.jpg')
 const doorNormalTexture = textureLoader.load('./textures/door/normal.jpg')
 const doorMetalnessTexture = textureLoader.load('./textures/door/metalness.jpg')
 const doorRoughnessTexture = textureLoader.load('./textures/door/roughness.jpg')
+
+const roofColorTexture = textureLoader.load('./textures/roof/color.jpg')
+const roofAmbientOcclusionTexture = textureLoader.load('./textures/roof/ambientOcclusion.jpg')
+const roofHeightTexture = textureLoader.load('./textures/roof/height.jpg')
+const roofNormalTexture = textureLoader.load('./textures/roof/normal.jpg')
+const roofRoughnessTexture = textureLoader.load('./textures/roof/roughness.jpg')
 
 const bricksColorTexture = textureLoader.load('./textures/bricks/color.jpg')
 const bricksRoughnessTexture = textureLoader.load('./textures/bricks/roughness.jpg')
@@ -56,6 +62,12 @@ grassColorTexture.wrapT = THREE.RepeatWrapping
 grassRoughnessTexture.wrapT = THREE.RepeatWrapping
 grassNormalTexture.wrapT = THREE.RepeatWrapping
 grassAmbientOcclusionTexture.wrapT = THREE.RepeatWrapping
+
+const gravesColorTexture = textureLoader.load('./textures/graves/color.jpg')
+const gravesRoughnessTexture = textureLoader.load('./textures/graves/roughness.jpg')
+const gravesNormalTexture = textureLoader.load('./textures/graves/normal.jpg')
+const gravesMetalnessTexture = textureLoader.load('./textures/graves/metalness.jpg')
+const gravesAmbientOcclusionTexture = textureLoader.load('./textures/graves/ambientOcclusion.jpg')
 
 /**
  * House
@@ -135,7 +147,13 @@ const graves = new THREE.Group()
 scene.add(graves)
 
 const graveGeometry = new THREE.BoxGeometry(.6, .8, .2)
-const graveMaterial = new THREE.MeshStandardMaterial({ color: 0xb2b6b1 })
+const graveMaterial = new THREE.MeshStandardMaterial({ 
+    map: gravesColorTexture,
+    aoMap: gravesAmbientOcclusionTexture,
+    normalMap: gravesNormalTexture,
+    roughnessMap: gravesRoughnessTexture,
+    // metalnessMap: gravesMetalnessTexture
+ })
 
 for (let i = 0; i < 50; i++) {
     const angle = Math.random() * Math.PI * 2
