@@ -38,6 +38,36 @@ const roofHeightTexture = textureLoader.load('./textures/roof/height.png')
 const roofNormalTexture = textureLoader.load('./textures/roof/normal.jpg')
 const roofRoughnessTexture = textureLoader.load('./textures/roof/roughness.jpg')
 
+// roofColorTexture.center = (.0, 0.15)
+// roofAmbientOcclusionTexture.center = (.0, 0.15)
+// roofHeightTexture.center = (.0, 0.15)
+// roofNormalTexture.center = (.0, 0.15)
+// roofRoughnessTexture.center = (.0, 0.15)
+
+// roofColorTexture.rotation = Math.PI * .5
+// roofAmbientOcclusionTexture.rotation = Math.PI * .5
+// roofHeightTexture.rotation = Math.PI * .5
+// roofNormalTexture.rotation = Math.PI * .5
+// roofRoughnessTexture.rotation = Math.PI * .5
+
+// roofColorTexture.repeat.set(2,2)
+// roofAmbientOcclusionTexture.repeat.set(2,2)
+// roofHeightTexture.repeat.set(2,2)
+// roofNormalTexture.repeat.set(2,2)
+// roofRoughnessTexture.repeat.set(2,2)
+
+// roofColorTexture.wrapS = THREE.RepeatWrapping
+// roofAmbientOcclusionTexture.wrapS = THREE.RepeatWrapping
+// roofHeightTexture.wrapS = THREE.RepeatWrapping
+// roofNormalTexture.wrapS = THREE.RepeatWrapping
+// roofRoughnessTexture.wrapS = THREE.RepeatWrapping
+
+// roofColorTexture.wrapT = THREE.RepeatWrapping
+// roofAmbientOcclusionTexture.wrapT = THREE.RepeatWrapping
+// roofHeightTexture.wrapT = THREE.RepeatWrapping
+// roofNormalTexture.wrapT = THREE.RepeatWrapping
+// roofRoughnessTexture.wrapT = THREE.RepeatWrapping
+
 const bricksColorTexture = textureLoader.load('./textures/bricks/color.jpg')
 const bricksRoughnessTexture = textureLoader.load('./textures/bricks/roughness.jpg')
 const bricksNormalTexture = textureLoader.load('./textures/bricks/normal.jpg')
